@@ -1,0 +1,19 @@
+<h1>Postal Codes</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <th>Postal Code</th>
+    <th>City</th>
+    <th>County</th>
+    <th>State Code</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="city in pagedCities.content">
+      <!--<td style="width: 1px"><button type="button" class="btn btn-default" ng-click="viewCustomerDetails(customer)"><span class="glyphicon glyphicon-search"></span></button></td>-->
+      <td>{{city.postalCode}}</td>
+      <td>{{city.name}}</td>
+      <td>{{city.county}}</td>
+      <td>{{city.stateCode}}</td>
+    </tr>
+  </tbody>
+</table>
