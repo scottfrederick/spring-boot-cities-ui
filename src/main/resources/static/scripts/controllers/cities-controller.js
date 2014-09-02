@@ -16,7 +16,6 @@ angular.module('citiesUiApp', ['ngResource', 'ui.bootstrap']).
         }
 
         $scope.pageChanged = function() {
-            console.log('Page changed to: ' + $scope.pageNumber);
             list();
         };
 

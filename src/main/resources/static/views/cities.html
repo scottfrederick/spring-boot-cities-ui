@@ -1,26 +1,28 @@
-<h1>Postal Codes</h1>
+<div ng-controller="CitiesController" ng-init="init()">
+    <h1>Postal Codes</h1>
 
-<table class="table table-striped table-hover">
-    <thead>
-        <th>Postal Code</th>
-        <th>City</th>
-        <th>County</th>
-        <th>State Code</th>
-        <th>Map</th>
-    </thead>
-    <tbody>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>Postal Code</th>
+            <th>City</th>
+            <th>County</th>
+            <th>State Code</th>
+            <th>Map</th>
+        </thead>
+        <tbody>
         <tr ng-repeat="city in pagedCities.content">
-            <td>{{city.postalCode}}</td>
-            <td>{{city.name}}</td>
-            <td>{{city.county}}</td>
-            <td>{{city.stateCode}}</td>
-            <td><a href="http://maps.google.com/maps/?q={{city.latitude}},{{city.longitude}}">view on map</a></td>
+            <td width="15%">{{city.postalCode}}</td>
+            <td width="30%">{{city.name}}</td>
+            <td width="30%">{{city.county}}</td>
+            <td width="10%">{{city.stateCode}}</td>
+            <td width="15%"><a target="_blank" href="http://maps.google.com/maps/?q={{city.latitude}},{{city.longitude}}">view on map</a></td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
-<p>{{pagedCities.page}}</p>
-<p>{{pageNumber}}</p>
-<pagination ng-model="pageNumber" total-items="pagedCities.page.totalElements" items-per-page="pagedCities.page.size"
-            ng-change="pageChanged()" boundary-links="true" max-size="maxPageLinks"
-            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+    <pagination ng-model="pageNumber" ng-change="pageChanged()"
+                total-items="pagedCities.page.totalElements" items-per-page="pagedCities.page.size"
+                boundary-links="true" max-size="maxPageLinks"
+                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+</div>
+

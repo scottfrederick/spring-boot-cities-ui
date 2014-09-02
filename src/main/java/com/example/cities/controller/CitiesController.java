@@ -21,7 +21,6 @@ public class CitiesController {
 
     @RequestMapping(method = RequestMethod.GET)
     public PagedResources<City> cities(Pageable pageable) {
-        logger.info("Pageable=" + pageable);
         return repository.findAll(pageable.getPageNumber(), pageable.getPageSize());
     }
 }
