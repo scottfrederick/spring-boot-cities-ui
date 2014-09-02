@@ -10,5 +10,5 @@ import javax.inject.Named;
 @Repository
 public interface CityRepository {
     @RequestLine("GET /cities?page={page}&size={size}")
-    public PagedResources<City> findAll(@Named("page") String page, @Named("size") String size);
+    public PagedResources<City> findAll(@Named("page") Integer page, @Named("size") Integer size);
 }

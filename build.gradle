@@ -29,6 +29,8 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.data:spring-data-commons"
     compile "org.springframework.hateoas:spring-hateoas"
+    compile "org.springframework.cloud:spring-cloud-spring-service-connector:1.0.0.RELEASE"
+    compile "org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.0.0.RELEASE"
 
     // Feign
     compile 'com.netflix.feign:feign-core:6.1.3'

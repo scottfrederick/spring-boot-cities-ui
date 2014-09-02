@@ -6,15 +6,16 @@
         <th>City</th>
         <th>County</th>
         <th>State Code</th>
+        <th>Map</th>
     </thead>
     <tbody>
-    <tr ng-repeat="city in pagedCities.content">
-        <!--<td style="width: 1px"><button type="button" class="btn btn-default" ng-click="viewCustomerDetails(customer)"><span class="glyphicon glyphicon-search"></span></button></td>-->
-        <td>{{city.postalCode}}</td>
-        <td>{{city.name}}</td>
-        <td>{{city.county}}</td>
-        <td>{{city.stateCode}}</td>
-    </tr>
+        <tr ng-repeat="city in pagedCities.content">
+            <td>{{city.postalCode}}</td>
+            <td>{{city.name}}</td>
+            <td>{{city.county}}</td>
+            <td>{{city.stateCode}}</td>
+            <td><a href="http://maps.google.com/maps/?q={{city.latitude}},{{city.longitude}}">view on map</a></td>
+        </tr>
     </tbody>
 </table>
 

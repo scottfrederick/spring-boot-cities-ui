@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,11 +22,6 @@ public class CitiesController {
     @RequestMapping(method = RequestMethod.GET)
     public PagedResources<City> cities(Pageable pageable) {
         logger.info("Pageable=" + pageable);
-        return repository.findAll(asString(pageable.getPageNumber()), asString(pageable.getPageSize()));
+        return repository.findAll(pageable.getPageNumber(), pageable.getPageSize());
     }
-
-    private String asString(int value) {
-        return String.valueOf(value);
-    }
-
 }
