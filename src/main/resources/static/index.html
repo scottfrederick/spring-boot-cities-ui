@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.2.0/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="webjars/angular-ui/0.4.0/angular-ui.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="citiesUiApp">
@@ -38,7 +39,10 @@
         <div class="container xd-container">
             <!--<div ui-view id="xd-content" class="tab-content"></div>-->
             <div id="xd-content" class="tab-content">
-                <div ng-include src="'views/cities.html'" ng-controller="CitiesController"></div>
+                <div ng-controller="CitiesController" ng-init="init()">
+                    <div ng-include src="'views/cities.html'">
+                    </div>
+                </div>
             </div>
         </div>
       </div>
@@ -53,7 +57,9 @@
 
     <script src="webjars/angularjs/1.2.23/angular.js"></script>
     <script src="webjars/angularjs/1.2.23/angular-resource.js"></script>
-    <script src="webjars/angular-ui-router/0.2.11/angular-ui-router.js"/>
+    <script src="webjars/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
+    <script src="webjars/angular-ui/0.4.0/angular-ui.js"></script>
+    <script src="webjars/angular-ui-router/0.2.11/angular-ui-router.js"></script>
     <script src="webjars/angularjs-google-maps/0.6.0/ng-map.js"></script>
 
     <script src="webjars/bootstrap/3.2.0/js/bootstrap.js"></script>

@@ -5,9 +5,11 @@ import com.example.cities.repository.CityRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,8 +21,13 @@ public class CitiesController {
     private CityRepository repository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public PagedResources<City> cities() {
-        PagedResources<City> cities = repository.findAll();
-        return cities;
+    public PagedResources<City> cities(Pageable pageable) {
+        logger.info("Pageable=" + pageable);
+        return repository.findAll(asString(pageable.getPageNumber()), asString(pageable.getPageSize()));
     }
+
+    private String asString(int value) {
+        return String.valueOf(value);
+    }
+
 }

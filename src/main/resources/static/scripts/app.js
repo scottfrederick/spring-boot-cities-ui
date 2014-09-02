@@ -6,3 +6,4 @@ angular.module('citiesUiApp', [ 'ngResource', 'ui.router' ])
     })
     .config(function () {
     });
+

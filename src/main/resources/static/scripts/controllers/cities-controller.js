@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('citiesUiApp', ['ngResource']).
+angular.module('citiesUiApp', ['ngResource', 'ui.bootstrap']).
     factory('PostalCodes', function ($resource) {
         return $resource('cities');
     }).
@@ -9,10 +9,21 @@ angular.module('citiesUiApp', ['ngResource']).
     }).
     controller('CitiesController', function ($scope, PostalCodes, PostalCode) {
         function list() {
-            PostalCodes.get().$promise.then(function(pagedCities) {
+            console.log('loading page number: ' + $scope.pageNumber);
+            PostalCodes.get({page: $scope.pageNumber - 1, size: $scope.itemsPerPage}).$promise.then(function(pagedCities) {
                 $scope.pagedCities = pagedCities;
             })
         }
 
-        list();
+        $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.pageNumber);
+            list();
+        };
+
+        $scope.init = function() {
+            $scope.pageNumber = 1;
+            $scope.itemsPerPage = 20;
+            $scope.maxPageLinks = 15;
+            list();
+        };
     });
