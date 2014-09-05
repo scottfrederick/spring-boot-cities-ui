@@ -11,4 +11,7 @@ import javax.inject.Named;
 public interface CityRepository {
     @RequestLine("GET /cities?page={page}&size={size}")
     public PagedResources<City> findAll(@Named("page") Integer page, @Named("size") Integer size);
+
+    @RequestLine("GET /cities/search/nameContains?q={name}&page={page}&size={size}")
+    public PagedResources<City> findByNameContains(@Named("name") String name, @Named("page") Integer page, @Named("size") Integer size);
 }
